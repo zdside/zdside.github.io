@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zekalar Dark Side</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" href="imgs/logo.png" type="image/png">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        html, body {
+            height: 100%; /* Ensure the body takes full height */
+            display: flex;
+            flex-direction: column; /* Align children vertically */
+        }
+
+        body {
+            background-color: #121212;
+            color: #ddd;
+            line-height: 1.6;
+            padding: 0 20px;
+            flex: 1; /* Allow body content to expand and take available space */
+        }
+
+        a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: flex-start; /* Align logo to the left */
+            align-items: center; /* Center vertically */
+            padding: 20px 0px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap; /* Allow the logo and text to stack on mobile */
+        }
+
+        .site-logo img {
+            width: 100px;
+            height: 100px;
+            margin-right: 15px;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 20px;
+            margin: 40px 0;
+        }
+
+        .blog {
+            border-radius: 10px;
+        }
+
+        h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+            color: #fff;
+        }
+
+        h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .post {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #222;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        .footer p {
+            font-size: 1.2em;
+            color: #bbb;
+        }
+
+        /* Media Queries for mobile responsiveness */
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px 20px;
+                justify-content: center; /* Center the logo and text on mobile */
+                text-align: center;
+            }
+
+            .logo {
+                font-size: 1.5em;
+            }
+
+            .site-logo img {
+                width: 80px; /* Make the logo smaller */
+                height: 80px;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .post {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 2.2em;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            .footer p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2em;
+            }
+
+            .post {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .footer p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="site-logo">
+            <img src="imgs/logo.png" alt="Zəkalar Dark Side Logo">
+        </div>
+        <div class="logo">
+            Zəkalar Dark Side
+        </div>
+    </header>
+
+    <main>
+        <section class="section blog">
+            <h2>Xəbərlər</h2>
+            <div class="post">
+                <h3>Zəkalar Wi-Fi parol 12.30.2024</h3>
+                <p>Parol: @School#2023!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Zekalar Dark Side</p>
+    </footer>
+
+</body>
+</html>
