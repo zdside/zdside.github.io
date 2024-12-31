@@ -168,14 +168,24 @@
 
         .viruslar-btn {
             padding: 10px 20px;
-            background-color: #333;
-            color: #ADADAD;
+            background-color: #333; /* Dark gray background */
+            color: #ADADAD; /* Bright accent color for text */
             border: none;
             border-radius: 5px;
             font-size: 1em;
             font-weight: 600;
             cursor: pointer;
-            margin-left: auto;
+            margin-left: auto; /* Pushes the button to the right */
+        }
+
+        .download-btn{
+            display: inline-block; /* Make the link behave like a block element */
+            margin-left: 10px; /* Space between file name and button */
+        }
+        .download-icon{
+            width: 20px; /* Set the desired size of the download icon */
+            height: auto; /* Maintain aspect ratio */
+            cursor: pointer; /* Change cursor to indicate it's clickable */
         }
     </style>
 </head>
@@ -187,17 +197,23 @@
         <div class="logo">
             Zəkalar Dark Side
         </div>
-        <button onclick="location.href='viruslar.html'" class="viruslar-btn">Viruslar</button>
+        <button onclick="location.href='index.html'" class="viruslar-btn">Xeberler</button>
     </header>
 
 
     <main>
         <section class="section blog">
-            <h2>Xəbərlər</h2>
+            <h2>Viruslar</h2>
             <div class="post">
-                <h3>Zəkalar Wi-Fi parol 30.12.2024</h3>
-                <p>Parol: @School#2023!</p>
-            </div>
+                <h3>Freeze Screen 01.01.2025</h3>
+                <p>Adından göründüyü kimi ekranı dondurur nə mouse ilə nə də klaviatura ilə heçnə etmək olmur (windows key, alt, ctrl, alt+tab çıxmaqla). Yalnız "esc" klavişinin köməyi ilə proqram bitir. Brauzer yükləməyi bloklasada icazə verin yükləsin proqram zərərsizdir.</p>
+                <div>
+                    <span class="file-name">freeze_screen.exe</span>
+                    <a href="viruses/freeze_screen.exe" class="download-btn" download>
+                        <img src="imgs/download.png" alt="Download" class="download-icon">
+                    </a>
+                </div>
+            </div>            
         </section>
     </main>
 
