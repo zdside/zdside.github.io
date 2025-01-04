@@ -168,21 +168,29 @@
 
         .viruslar-btn {
             padding: 10px 20px;
-            background-color: #333; /* Dark gray background */
-            color: #ADADAD; /* Bright accent color for text */
+            background-color: #333;
+            color: #ADADAD;
             border: none;
             border-radius: 5px;
             font-size: 1em;
             font-weight: 600;
             cursor: pointer;
-            margin-left: auto; /* Pushes the button to the right */
+            width: 100px; /* Consistent button width */
+            text-align: center;
         }
 
-        .download-btn{
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+            margin-left: auto; /* Push buttons to the right */
+            gap: 10px; /* Add space between buttons */
+        }
+
+        .download-btn {
             display: inline-block; /* Make the link behave like a block element */
             margin-left: 10px; /* Space between file name and button */
         }
-        .download-icon{
+        .download-icon {
             width: 20px; /* Set the desired size of the download icon */
             height: auto; /* Maintain aspect ratio */
             cursor: pointer; /* Change cursor to indicate it's clickable */
@@ -197,9 +205,11 @@
         <div class="logo">
             Zəkalar Dark Side
         </div>
-        <button onclick="location.href='index.html'" class="viruslar-btn">Xeberler</button>
+        <div class="button-container">
+            <button onclick="location.href='index.html'" class="viruslar-btn">Xəbərlər</button>
+            <button onclick="location.href='contact.html'" class="viruslar-btn">Əlaqə</button>
+        </div>
     </header>
-
 
     <main>
         <section class="section blog">
@@ -220,6 +230,5 @@
     <footer class="footer">
         <p>&copy; 2024 Zəkalar Dark Side</p>
     </footer>
-
 </body>
 </html>

@@ -114,6 +114,49 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-size: 1.2em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], textarea {
+            padding: 10px;
+            font-size: 1em;
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 5px;
+            color: #fff;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            padding: 12px 20px;
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0099cc;
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -162,6 +205,16 @@
             .footer p {
                 font-size: 1em;
             }
+
+            /* Form Adjustments */
+            form {
+                padding: 20px;
+            }
+
+            button[type="submit"] {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -184,6 +237,24 @@
             .footer p {
                 font-size: 0.9em;
             }
+
+            /* Form Adjustments */
+            form {
+                padding: 15px;
+            }
+
+            label {
+                font-size: 1em;
+            }
+
+            input[type="text"], textarea {
+                font-size: 0.9em;
+            }
+
+            button[type="submit"] {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
@@ -196,18 +267,22 @@
             Zəkalar Dark Side
         </div>
         <div class="button-container">
+            <button onclick="location.href='index.html'" class="viruslar-btn">Xəbərlər</button>
             <button onclick="location.href='viruslar.html'" class="viruslar-btn">Viruslar</button>
-            <button onclick="location.href='contact.html'" class="viruslar-btn">Əlaqə</button>
         </div>
     </header>
 
     <main>
         <section class="section blog">
-            <h2>Xəbərlər</h2>
-            <div class="post">
-                <h3>Zəkalar Wi-Fi parol 30.12.2024</h3>
-                <p>Parol: @School#2023!</p>
-            </div>
+            <form action="https://formspree.io/f/mrbbokbn" method="POST">
+                <label for="name">Adınız</label>
+                <input type="text" id="name" name="name" placeholder="Adınızı daxil edin" required>
+                
+                <label for="message">Mesajınız</label>
+                <textarea id="message" name="message" placeholder="Mesajınızı daxil edin" required></textarea>
+                
+                <button type="submit">Göndər</button>
+            </form>
         </section>
     </main>
 
