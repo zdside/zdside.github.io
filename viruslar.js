@@ -20,8 +20,7 @@ let originalPosts = [
 ];
 
 let posts = [...originalPosts];
-let filteredPosts = [...originalPosts];
-let postsPerPage = 2;
+let postsPerPage = 3;
 let currentIndex = 0;
 
 function loadPosts(isInitialLoad = false) {
@@ -35,8 +34,8 @@ function loadPosts(isInitialLoad = false) {
     }
 
     for (let i = currentIndex; i < currentIndex + postsPerPage; i++) {
-        if (i >= filteredPosts.length) break;
-        let post = filteredPosts[i];
+        if (i >= posts.length) break;
+        let post = posts[i];
         let postElement = document.createElement('div');
         postElement.classList.add('post');
         postElement.innerHTML = `
@@ -57,7 +56,9 @@ function loadPosts(isInitialLoad = false) {
     }
     
     currentIndex += postsPerPage;
-    if (currentIndex >= filteredPosts.length) {
+
+    // Show or hide the "Show More" button based on remaining posts
+    if (currentIndex >= posts.length) {
         document.getElementById('loadMoreBtn').style.display = 'none';
     } else {
         document.getElementById('loadMoreBtn').style.display = 'block';
@@ -68,14 +69,3 @@ document.getElementById('loadMoreBtn').addEventListener('click', () => loadPosts
 
 // Load initial posts
 loadPosts(true);
-
-document.getElementById('searchInput').addEventListener('input', function(event) {
-    let query = event.target.value.toLowerCase();
-    filteredPosts = originalPosts.filter(post => 
-        post.title.toLowerCase().includes(query) || 
-        post.content.toLowerCase().includes(query)
-    );
-
-    currentIndex = 0; // Reset current index for fresh search
-    loadPosts(true); // Load the filtered posts
-});
