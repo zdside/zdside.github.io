@@ -1,7 +1,7 @@
 let originalPosts = [
     {
         title: "Ram Eater 05.01.2025",
-        content: "Bu proqram bir saniyədən bir Chrome açır.",
+        content: "Bu proqram hər saniyədən bir Chrome açır.",
         file: "ram_eater.exe",
         size: "19Kb"
     },
@@ -21,16 +21,19 @@ let originalPosts = [
 
 let posts = [...originalPosts];
 let filteredPosts = [...originalPosts];  // Initially same as originalPosts
+let shownPosts = [];
+let postsPerPage = 2;
+let currentIndex = 0; // To track the last index of loaded posts
 
 function loadPosts() {
     let container = document.getElementById('postsContainer');
     let postsWrapper = document.getElementById('postsWrapper') || document.createElement('div');
     postsWrapper.id = 'postsWrapper';
 
-    postsWrapper.innerHTML = ''; // Clear previous posts
-
-    // Load posts from the beginning
-    filteredPosts.forEach(post => {
+    // Load posts from currentIndex
+    for (let i = currentIndex; i < currentIndex + postsPerPage; i++) {
+        if (i >= filteredPosts.length) break;
+        let post = filteredPosts[i];
         let postElement = document.createElement('div');
         postElement.classList.add('post');
         postElement.innerHTML = `
@@ -44,22 +47,35 @@ function loadPosts() {
             </div>
         `;
         postsWrapper.appendChild(postElement);
-    });
+    }
 
     if (!document.getElementById('postsWrapper')) {
         container.appendChild(postsWrapper);
     }
+
+    // Update the currentIndex to load the next set of posts on next scroll
+    currentIndex += postsPerPage;
 }
 
-loadPosts();  // Load posts on initial page load
+function checkScroll() {
+    let container = document.documentElement;
+    let bottom = container.scrollHeight === container.scrollTop + window.innerHeight;
+    if (bottom) {
+        loadPosts(); // Load more posts when near bottom
+    }
+}
 
 document.getElementById('searchInput').addEventListener('input', function(event) {
     let query = event.target.value.toLowerCase();
-
-    // Filter the posts based on search query
     filteredPosts = originalPosts.filter(post => 
         post.title.toLowerCase().includes(query)
     );
-
-    loadPosts();  // Reload filtered posts
+    currentIndex = 0; // Reset current index when search changes
+    document.getElementById('postsWrapper').innerHTML = ''; // Clear previous posts
+    loadPosts(); // Load new filtered posts
 });
+
+window.addEventListener('scroll', checkScroll);
+
+// Load initial posts on page load
+loadPosts();
