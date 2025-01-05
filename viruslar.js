@@ -1,7 +1,7 @@
 let originalPosts = [
     {
         title: "Ram Eater 05.01.2025",
-        content: "Bu proqram hər saniyədən bir Chrome açır.",
+        content: "Bu proqram bir saniyədən bir Chrome açır.",
         file: "ram_eater.exe",
         size: "19Kb"
     },
@@ -20,22 +20,17 @@ let originalPosts = [
 ];
 
 let posts = [...originalPosts];
-let postsPerPage = 3;
-let currentIndex = 0;
+let filteredPosts = [...originalPosts];  // Initially same as originalPosts
 
-function loadPosts(isInitialLoad = false) {
+function loadPosts() {
     let container = document.getElementById('postsContainer');
     let postsWrapper = document.getElementById('postsWrapper') || document.createElement('div');
     postsWrapper.id = 'postsWrapper';
-    
-    if (isInitialLoad) {
-        postsWrapper.innerHTML = ''; // Clear previous posts on initial load
-        currentIndex = 0; // Reset the index on initial load
-    }
 
-    for (let i = currentIndex; i < currentIndex + postsPerPage; i++) {
-        if (i >= posts.length) break;
-        let post = posts[i];
+    postsWrapper.innerHTML = ''; // Clear previous posts
+
+    // Load posts from the beginning
+    filteredPosts.forEach(post => {
         let postElement = document.createElement('div');
         postElement.classList.add('post');
         postElement.innerHTML = `
@@ -49,23 +44,22 @@ function loadPosts(isInitialLoad = false) {
             </div>
         `;
         postsWrapper.appendChild(postElement);
-    }
+    });
 
     if (!document.getElementById('postsWrapper')) {
         container.appendChild(postsWrapper);
     }
-    
-    currentIndex += postsPerPage;
-
-    // Show or hide the "Show More" button based on remaining posts
-    if (currentIndex >= posts.length) {
-        document.getElementById('loadMoreBtn').style.display = 'none';
-    } else {
-        document.getElementById('loadMoreBtn').style.display = 'block';
-    }
 }
 
-document.getElementById('loadMoreBtn').addEventListener('click', () => loadPosts());
+loadPosts();  // Load posts on initial page load
 
-// Load initial posts
-loadPosts(true);
+document.getElementById('searchInput').addEventListener('input', function(event) {
+    let query = event.target.value.toLowerCase();
+
+    // Filter the posts based on search query
+    filteredPosts = originalPosts.filter(post => 
+        post.title.toLowerCase().includes(query)
+    );
+
+    loadPosts();  // Reload filtered posts
+});

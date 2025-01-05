@@ -142,6 +142,11 @@
             .footer p {
                 font-size: 1em;
             }
+
+            .search-bar {
+                width: 100%; /* Full width on mobile */
+                margin-top: -20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -164,6 +169,10 @@
             .footer p {
                 font-size: 0.9em;
             }
+
+            .search-bar {
+                width: 100%; /* Full width on mobile */
+            }
         }
 
         .viruslar-btn {
@@ -176,19 +185,6 @@
             font-weight: 600;
             cursor: pointer;
             width: 100px;
-            text-align: center;
-        }
-
-        .loadmore {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #ADADAD;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            width: 170px;
             text-align: center;
         }
 
@@ -215,6 +211,17 @@
             justify-content: center;
             margin-top: auto;
         }
+
+        .search-bar {
+            padding: 8px;
+            font-size: 1em;
+            width: 150px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+            margin-left: 30px;
+        }
     </style>
 </head>
 <body>
@@ -233,11 +240,11 @@
 
     <main>
         <section class="section blog" id="postsContainer">
-            <h2>Viruslar</h2>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>Viruslar</h2>
+                <input type="text" id="searchInput" placeholder="Axtar.." class="search-bar">
+            </div>
         </section>
-        <div class="button-containerp">
-            <button id="loadMoreBtn" class="loadmore">Daha çox göstər</button>
-        </div>
     </main>
 
     <footer class="footer">
