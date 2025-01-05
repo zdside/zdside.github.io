@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,9 +17,9 @@
         }
 
         html, body {
-            height: 100%; /* Ensure the body takes full height */
+            height: 100%;
             display: flex;
-            flex-direction: column; /* Align children vertically */
+            flex-direction: column;
         }
 
         body {
@@ -27,7 +27,7 @@
             color: #ddd;
             line-height: 1.6;
             padding: 0 20px;
-            flex: 1; /* Allow body content to expand and take available space */
+            flex: 1;
         }
 
         a {
@@ -42,11 +42,11 @@
         /* Header */
         .header {
             display: flex;
-            justify-content: flex-start; /* Align logo to the left */
-            align-items: center; /* Center vertically */
+            justify-content: flex-start;
+            align-items: center;
             padding: 20px 0px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            flex-wrap: wrap; /* Allow the logo and text to stack on mobile */
+            flex-wrap: wrap;
         }
 
         .site-logo img {
@@ -110,7 +110,7 @@
         @media (max-width: 768px) {
             .header {
                 padding: 10px 20px;
-                justify-content: center; /* Center the logo and text on mobile */
+                justify-content: center;
                 text-align: center;
             }
 
@@ -119,7 +119,7 @@
             }
 
             .site-logo img {
-                width: 80px; /* Make the logo smaller */
+                width: 80px;
                 height: 80px;
             }
 
@@ -141,6 +141,11 @@
 
             .footer p {
                 font-size: 1em;
+            }
+
+            .search-bar {
+                width: 100%; /* Full width on mobile */
+                margin-top: 10px;
             }
         }
 
@@ -164,6 +169,10 @@
             .footer p {
                 font-size: 0.9em;
             }
+
+            .search-bar {
+                width: 100%; /* Full width on mobile */
+            }
         }
 
         .viruslar-btn {
@@ -175,25 +184,56 @@
             font-size: 1em;
             font-weight: 600;
             cursor: pointer;
-            width: 100px; /* Consistent button width */
+            width: 100px;
+            text-align: center;
+        }
+
+        .loadmore {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #ADADAD;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 170px;
             text-align: center;
         }
 
         .button-container {
             display: flex;
-            flex-direction: column; /* Stack buttons vertically */
-            margin-left: auto; /* Push buttons to the right */
-            gap: 10px; /* Add space between buttons */
+            flex-direction: column;
+            margin-left: auto;
+            gap: 10px;
         }
 
         .download-btn {
-            display: inline-block; /* Make the link behave like a block element */
-            margin-left: 10px; /* Space between file name and button */
+            display: inline-block;
+            margin-left: 10px;
         }
+
         .download-icon {
-            width: 20px; /* Set the desired size of the download icon */
-            height: auto; /* Maintain aspect ratio */
-            cursor: pointer; /* Change cursor to indicate it's clickable */
+            width: 20px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .button-containerp {
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+        }
+
+        .search-bar {
+            padding: 8px;
+            font-size: 1em;
+            width: 250px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -212,23 +252,21 @@
     </header>
 
     <main>
-        <section class="section blog">
-            <h2>Viruslar</h2>
-            <div class="post">
-                <h3>Freeze Screen 01.01.2025</h3>
-                <p>Adından göründüyü kimi ekranı dondurur nə mouse ilə nə də klaviatura ilə heçnə etmək olmur (windows key, alt, ctrl, alt+tab çıxmaqla). Yalnız "esc" klavişinin köməyi ilə proqram bitir. Brauzer yükləməyi bloklasada icazə verin yükləsin proqram zərərsizdir.</p>
-                <div>
-                    <span class="file-name">freeze_screen.exe</span>
-                    <a href="viruses/freeze_screen.exe" class="download-btn" download>
-                        <img src="imgs/download.png" alt="Download" class="download-icon">
-                    </a>
-                </div>
-            </div>            
+        <section class="section blog" id="postsContainer">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>Viruslar</h2>
+                <input type="text" id="searchInput" placeholder="Axtar.." class="search-bar">
+            </div>
         </section>
+        <div class="button-containerp">
+            <button id="loadMoreBtn" class="loadmore">Daha çox göstər</button>
+        </div>
     </main>
 
     <footer class="footer">
         <p>&copy; 2024 Zəkalar Dark Side</p>
     </footer>
+
+    <script src="viruslar.js"></script>
 </body>
 </html>
