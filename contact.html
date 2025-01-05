@@ -17,9 +17,9 @@
         }
 
         html, body {
-            height: 100%; /* Ensure the body takes full height */
+            height: 100%;
             display: flex;
-            flex-direction: column; /* Align children vertically */
+            flex-direction: column;
         }
 
         body {
@@ -27,7 +27,7 @@
             color: #ddd;
             line-height: 1.6;
             padding: 0 20px;
-            flex: 1; /* Allow body content to expand and take available space */
+            flex: 1;
         }
 
         a {
@@ -42,10 +42,10 @@
         /* Header */
         .header {
             display: flex;
-            justify-content: flex-start; /* Align logo to the left */
-            align-items: center; /* Center vertically */
+            justify-content: flex-start;
+            align-items: center;
             padding: 20px 0px;
-            flex-wrap: wrap; /* Allow the logo and text to stack on mobile */
+            flex-wrap: wrap;
         }
 
         .site-logo img {
@@ -62,9 +62,9 @@
 
         .button-container {
             display: flex;
-            flex-direction: row; /* Stack buttons vertically */
-            margin-left: auto; /* Push buttons to the right */
-            gap: 10px; /* Add space between buttons */
+            flex-direction: row;
+            margin-left: auto;
+            gap: 10px;
         }
 
         .viruslar-btn {
@@ -76,9 +76,11 @@
             font-size: 1em;
             font-weight: 600;
             cursor: pointer;
-            width: 100px; /* Consistent button width */
+            width: 100px;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
+
 
         /* Sections */
         .section {
@@ -119,7 +121,6 @@
             background-color: #222;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         label {
@@ -129,7 +130,7 @@
         }
 
         input[type="text"], textarea {
-            padding: 10px;
+            padding: 12px;
             font-size: 1em;
             background-color: #333;
             border: 1px solid #555;
@@ -137,6 +138,12 @@
             color: #fff;
             width: 100%;
             box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            border-color: #00aaff;
+            outline: none;
         }
 
         button[type="submit"] {
@@ -170,7 +177,7 @@
         @media (max-width: 768px) {
             .header {
                 padding: 10px 20px;
-                justify-content: center; /* Center the logo and text on mobile */
+                justify-content: center;
                 text-align: center;
             }
 
@@ -179,7 +186,7 @@
             }
 
             .site-logo img {
-                width: 80px; /* Make the logo smaller */
+                width: 80px;
                 height: 80px;
             }
 
@@ -235,7 +242,6 @@
                 font-size: 0.9em;
             }
 
-            /* Form Adjustments */
             form {
                 padding: 15px;
             }
