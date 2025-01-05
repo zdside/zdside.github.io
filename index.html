@@ -45,7 +45,7 @@
             justify-content: flex-start; /* Align logo to the left */
             align-items: center; /* Center vertically */
             padding: 20px 0px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
             flex-wrap: wrap; /* Allow the logo and text to stack on mobile */
         }
 
@@ -63,9 +63,9 @@
 
         .button-container {
             display: flex;
-            flex-direction: column; /* Stack buttons vertically */
-            margin-left: auto; /* Push buttons to the right */
+            flex-direction: row; /* Align buttons horizontally */
             gap: 10px; /* Add space between buttons */
+            margin-left: auto;
         }
 
         .viruslar-btn {
@@ -110,8 +110,6 @@
             padding: 25px;
             background-color: #222;
             border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
@@ -136,11 +134,18 @@
 
             .logo {
                 font-size: 1.5em;
+                margin-bottom: 15px; /* Add space between the logo text and buttons */
             }
 
             .site-logo img {
                 width: 80px; /* Make the logo smaller */
                 height: 80px;
+            }
+
+            .button-container {
+                justify-content: center; /* Center the buttons horizontally */
+                gap: 10px; /* Add space between buttons */
+                margin-top: 10px; /* Add space above the buttons */
             }
 
             .section {
@@ -167,6 +172,7 @@
         @media (max-width: 480px) {
             .logo {
                 font-size: 1.2em;
+                margin-bottom: 10px; /* Adjust space for smaller screens */
             }
 
             .post {
