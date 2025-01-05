@@ -22,7 +22,7 @@ let originalPosts = [
 let posts = [...originalPosts];
 let filteredPosts = [...originalPosts];  // Initially same as originalPosts
 let shownPosts = [];
-let postsPerPage = 2;
+let postsPerPage = 3;
 let currentIndex = 0; // To track the last index of loaded posts
 
 function loadPosts() {
