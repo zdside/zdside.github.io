@@ -1,7 +1,7 @@
 let originalPosts = [
     {
         title: "Ram Eater 05.01.2025",
-        content: "Bu proqram hər saniyədən bir Chrome açır.",
+        content: "Bu proqram bir saniyədən bir Chrome açır.",
         file: "ram_eater.exe",
         size: "19Kb"
     },
